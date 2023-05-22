@@ -11,9 +11,7 @@ pipeline {
     stages{
         stage('Build') {
             steps {
-                echo 'Clone'
-                git branch: 'main',  url: 'https://github.com/kjeong-lesstif/open-devops'
-                //credentialsId: 'credentail id',
+                echo 'Build'
                 
             }
      
@@ -33,7 +31,7 @@ pipeline {
            }
            post {
                always {
-                   jiraSendDeploymentInfo site: 'kjeong-demo-1.atlassian.net', environmentId: 'us-prod-1', environmentName: 'us-prod-1', environmentType: 'production'
+                   jiraSendDeploymentInfo site: 'kjeong-demo-1.atlassian.net', environmentId: 'ap-northeast-2-prod-1', environmentName: 'Asia Pacific (Seoul) prod-1', environmentType: 'production'
                }
            }
 }
